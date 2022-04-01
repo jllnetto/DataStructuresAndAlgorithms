@@ -33,6 +33,11 @@ namespace DataStructuresAndAlgorithms.DataStructures
         /// <param  name="initialCapacity">Initial capacity of the array if not defined default value is 10</param>
         public DynamicArray(int initialCapacity=10)
         {
+            if (initialCapacity <= 0)
+            {
+                throw new ArgumentException("Initial size must be larger than Zero");
+            }
+
             InitialCapacity = initialCapacity;
             Data = new T[initialCapacity];
         }

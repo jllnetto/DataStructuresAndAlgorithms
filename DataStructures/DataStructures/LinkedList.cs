@@ -9,13 +9,13 @@ namespace DataStructuresAndAlgorithms.DataStructures
     public class LinkedList<T>
     {
         private Node<T> Head;
-        public int Size;
+        private int Size;
 
         public void AddFront(T value)
         {
             if (value == null)
             {
-                throw new ArgumentNullException("Value is invalid for deletion");
+                throw new ArgumentNullException("Value is invalid for inclusion");
             }
             Node<T> newNode = new Node<T>(value);
             newNode.Next = Head;
@@ -27,7 +27,7 @@ namespace DataStructuresAndAlgorithms.DataStructures
         {
             if (value == null)
             {
-                throw new ArgumentNullException("Value is invalid for deletion");
+                throw new ArgumentNullException("Value is invalid for inclusion");
             }
             Node<T> newNode = new Node<T>(value);
             if (Head == null)
