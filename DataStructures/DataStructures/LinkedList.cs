@@ -6,11 +6,27 @@ using System.Threading.Tasks;
 
 namespace DataStructuresAndAlgorithms.DataStructures
 {
+    /// <summary>
+    /// Dynamic Collection of elements in an list format with utilitie methods to manipulate it. 
+    /// </summary>
+    /// <typeparam name="T">Type of the list</typeparam>
     public class LinkedList<T>
     {
+        /// <summary>
+        /// Nodes yith the data
+        /// </summary>
         private Node<T> Head;
+
+        /// <summary>
+        /// List elements count
+        /// </summary>
         private int Size;
 
+        /// <summary>
+        /// Add a iten to the beginning of the list
+        /// </summary>
+        /// <param name="value">Value to be add</param>
+        /// <exception cref="ArgumentNullException">If value is null</exception>
         public void AddFront(T value)
         {
             if (value == null)
@@ -23,6 +39,11 @@ namespace DataStructuresAndAlgorithms.DataStructures
             Size++;
         }
 
+        /// <summary>
+        /// Add a iten to the end of the list
+        /// </summary>
+        /// <param name="value">Value to be add</param>
+        /// <exception cref="ArgumentNullException">If value is null</exception>
         public void AddBack(T value)
         {
             if (value == null)
@@ -41,6 +62,11 @@ namespace DataStructuresAndAlgorithms.DataStructures
             Size++;
         }
 
+        /// <summary>
+        /// Gets the first element 
+        /// </summary>
+        /// <returns>First iten</returns>
+        /// <exception cref="InvalidOperationException">If list is empty</exception>
         public T GetFirst()
         {
             if (IsEmpty())
@@ -50,6 +76,11 @@ namespace DataStructuresAndAlgorithms.DataStructures
             return Head.Data;
         }
 
+        /// <summary>
+        /// Gets the last element 
+        /// </summary>
+        /// <returns>Last iten</returns>
+        /// <exception cref="InvalidOperationException">If list is empty</exception>
         public T GetLast()
         {
             if (IsEmpty())
@@ -60,6 +91,13 @@ namespace DataStructuresAndAlgorithms.DataStructures
             return last.Data;
         }
 
+        /// <summary>
+        /// Check if the value is contain in the list
+        /// </summary>
+        /// <param name="value">Value to be checked</param>
+        /// <returns>TRUE if it contains the value FALSE otherwise</returns>
+        /// <exception cref="InvalidOperationException">If list is empty</exception>
+        /// <exception cref="ArgumentNullException">If value is null</exception>
         public bool Contains(T value)
         {
             if (IsEmpty())
@@ -89,16 +127,28 @@ namespace DataStructuresAndAlgorithms.DataStructures
             return false;
         }
 
+        /// <summary>
+        /// Check if the list is empty
+        /// </summary>
+        /// <returns>TRUE if it is empty FALSE otherwise</returns>
+
         public bool IsEmpty()
         {
             return (Head == null || Size == 0);
         }
 
+        /// <summary>
+        /// List elements count
+        /// </summary>
+        /// <returns>Int with the number of elements int the list</returns>
         public int Count()
         {
             return Size;
         }
 
+        /// <summary>
+        /// Remove all the itens from the list
+        /// </summary>
         public void Clear()
         {
             Head = null;
@@ -106,6 +156,12 @@ namespace DataStructuresAndAlgorithms.DataStructures
             GC.Collect();
         }
 
+        /// <summary>
+        /// Remove iten by value
+        /// </summary>
+        /// <param name="value">Iten to be remove</param>
+        /// <exception cref="InvalidOperationException">If list is empty</exception>
+        /// <exception cref="ArgumentNullException">If value is null</exception>
         public void DeleteByValue(T value)
         {
             if(IsEmpty())
@@ -139,6 +195,10 @@ namespace DataStructuresAndAlgorithms.DataStructures
             GC.Collect();
         }
 
+        /// <summary>
+        /// Get the last node of the list
+        /// </summary>
+        /// <returns>the last node of the list</returns>
         private Node<T> GetLastNode()
         {         
 
